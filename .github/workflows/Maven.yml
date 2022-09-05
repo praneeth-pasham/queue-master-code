@@ -50,7 +50,7 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/master'
       with:
        # path: docker/queue-master
-        dockerfile: Dockerfile
+        dockerfile: ./Dockerfile
         registry: docker.io
         image: venupj/queue-master
         
