@@ -1,7 +1,7 @@
 name: Java CI with Maven
 env:
   DOCKER_REGISTRY: 172.16.238.245
-  APP_NAME: order
+  APP_NAME: queue-master
   JFROG_USER: ${{ secrets.JFROG_USER }}
   JFROG_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
 on:
@@ -38,8 +38,8 @@ jobs:
     - name: jforg login
       uses: jfrog/setup-jfrog-cli@v2
       env:   
-       JF_USER: ${{ secrets.JF_USER }}
-       JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
+       JFROG_USER: ${{ secrets.JFROG_USER }}
+       JFROG_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
        
    
        
