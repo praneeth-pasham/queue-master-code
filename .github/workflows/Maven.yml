@@ -25,9 +25,14 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    #- uses: actions/checkout@v3
+      
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)  
+      run: docker build . --tag "$DOCKER_REGISTRY/$APP_NAME:1.0.${{ github.run_id }}"
+      
+    
+   # - name: Build the Docker image
+    #- uses: actions/checkout@v3
+    #  run: docker build . --file Dockerfile --tag queue-master:$(date +%s)  
       
     - uses: actions/checkout@v3    
     - name: jforg login
@@ -38,9 +43,7 @@ jobs:
        
    
        
-#    - name: Build the Docker image
-#      run: docker build . --tag "$DOCKER_REGISTRY/$APP_NAME:1.0.${{ github.run_id }}"
-      
+   
 #    - name: Push to JFrog
 #      run: docker push "$DOCKER_REGISTRY/$APP_NAME:1.0.${{ github.run_id }}"
       
