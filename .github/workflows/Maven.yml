@@ -48,9 +48,9 @@ jobs:
       run: docker push "$DOCKER_REGISTRY/$APP_NAME:1.0.${{ github.run_id }}"
       
       
-#    - name: Login to DockerHub
-#      run: |
-#          echo "${{ secrets.DOCKERHUB_PASS }}" | docker login -u "venupj" --password-stdin 
+    - name: Login to DockerHub
+      run: |
+          echo "${{ secrets.DOCKERHUB_PASS }}" | docker login -u "venupj" --password-stdin 
         
     
 #    - name: Push to Docker Hub
